@@ -1,7 +1,7 @@
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import login as auth_login, logout as auth_logout
 from home import views
 
 # Create your views here.
@@ -9,7 +9,8 @@ def signup(request):
     if request.method == 'POST':
       form = UserCreationForm(request.POST)
       if form.is_valid():
-        form.save()
+        user = form.save()
+        auth_login(request, user)
         return redirect(views.denneb_home)
     else:    
       form = UserCreationForm()
@@ -25,4 +26,8 @@ def login(request):
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html' , {'form' : form})
-      
+
+def logout(request):
+    if request.method == 'POST':
+      auth_logout(request)
+      return redirect(views.denneb_home)
