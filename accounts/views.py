@@ -2,6 +2,7 @@ from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
+from django.contrib.auth.decorators import login_required
 from home import views
 
 # Create your views here.
@@ -31,3 +32,7 @@ def logout(request):
     if request.method == 'POST':
       auth_logout(request)
       return redirect(views.denneb_home)
+
+@login_required(login_url='/accounts/login')
+def require_login(request):
+    return render(request, 'accounts/required.html')
