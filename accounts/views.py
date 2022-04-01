@@ -33,6 +33,7 @@ def logout(request):
       auth_logout(request)
       return redirect(views.denneb_home)
 
+
 @login_required(login_url='/accounts/login')
 def require_login(request):
     return render(request, 'accounts/required.html')

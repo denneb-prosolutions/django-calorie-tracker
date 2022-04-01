@@ -5,7 +5,12 @@
     {% include 'nav.html' %}
         <div class="container">
             <center class = "mt-5">
-                <h1>Track your calories using django my friend</h1>
+                <h1>Input Foods you've eaten!</h1>
+                <form action="/" method ="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ foods_form }}
+                    <button type="submit">Add</button>
+                </form>
             </center>
         </div>
         
