@@ -1,0 +1,35 @@
+.form-styling {
+    text-align: center;
+}
+
+.form-styling input {
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.form-styling label {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: blueviolet;
+}
+
+.site-form input {
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 350px;
+}
+
+.site-form label {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: blueviolet;
+}
+
+.site-form span {
+    display: none;
+}
